@@ -1,6 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function Table() {
+
+    const demolist = [
+        {
+            first: 'Jacob',
+            last: 'Thornton',
+            handle: '@fat',
+        },
+        {
+            first: 'Jacob',
+            last: 'Thornton',
+            handle: '@fat',
+        },
+        {
+            first: 'Jacob',
+            last: 'Thornton',
+            handle: '@fat',
+        },
+        {
+            first: 'Jacob',
+            last: 'Thornton',
+            handle: '@fat',
+        }
+    ]
+
+    const [item, setItem] = useState(demolist)
+
+
+
+    function onDelete(index) {
+        setItem([
+            ...item.slice(0, index),
+            ...item.slice(index + 1, item.length)
+        ]);
+    }
+
     return (
         <div className='form-box'>
             <div className="container">
@@ -17,27 +52,16 @@ export default function Table() {
                                 </tr>
                             </thead>
                             <tbody className='table-secondary'>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td><i class="fa-solid fa-trash-can delete"></i></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                    <td><i class="fa-solid fa-trash-can delete"></i></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                    <td><i class="fa-solid fa-trash-can delete"></i></td>
-                                </tr>
+                                {item.map((data, index) => {
+                                    return <tr>
+                                        <th scope="row">2</th>
+                                        <td>{data.first}</td>
+                                        <td>{data.last}</td>
+                                        <td>{data.handle}</td>
+                                        <td><i class="fa-solid fa-trash-can delete" onClick={() => { onDelete(index) }}></i></td>
+                                    </tr>
+                                })}
+
                             </tbody>
                         </table>
                     </div>

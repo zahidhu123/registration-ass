@@ -1,6 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 
 export default function Registration() {
+
+
+    const [first, setFirst] = useState();
+    const [last, setLast] = useState();
+    const [mail, setMail] = useState();
+    const [dob, setDob] = useState();
+    const [phone, setPhone] = useState();
+    const [address, setAddress] = useState();
+    
+    const handleData = () => {
+        console.log(first, last,mail,dob,phone,address)
+    }
+
+    
     return (
         <>
             <div className='form-box'>
@@ -14,30 +29,45 @@ export default function Registration() {
                                     </div>
                                     <div class="col-md-6">
                                         <label for="validationDefault03" class="form-label">First name</label>
-                                        <input type="text" class="form-control" id="validationDefault03" placeholder='Enter your name' required />
+                                        <input type="text" value={first}
+                                        onChange={e => setFirst(e.target.value)}
+                                         class="form-control" id="validationDefault03" placeholder='Enter your name' required />
                                     </div>
                                     <div class="col-md-6">
                                         <label for="validationDefault03" class="form-label">Last Name</label>
-                                        <input type="text" class="form-control" id="validationDefault03" placeholder='Enter last name' required />
+                                        <input type="text" value={last}
+                                        onChange={e => setLast(e.target.value)} 
+                                        class="form-control" id="validationDefault03" placeholder='Enter last name' required />
                                     </div>
                                     <div class="col-md-6">
                                         <label for="validationDefault03" class="form-label">Mail Id</label>
-                                        <input type="email" class="form-control" id="validationDefault03" placeholder='Enter email id' required />
+                                        <input type="email" value={mail}
+                                        onChange={e => setMail(e.target.value)} 
+                                         class="form-control" id="validationDefault03" placeholder='Enter email id' required />
                                     </div>
                                     <div class="col-md-6">
                                         <label for="validationDefault03" class="form-label">DOB</label>
-                                        <input type="date" class="form-control" id="validationDefault03" placeholder='Enter DOB' required />
+                                        <input type="date" value={dob} 
+                                        onChange={e => setDob(e.target.value)}
+                                        class="form-control" id="validationDefault03" placeholder='Enter DOB' required />
                                     </div>
                                     <div class="col-md-12">
                                         <label for="validationDefault03" class="form-label">Phone No</label>
-                                        <input type="text" class="form-control" id="validationDefault03" placeholder='Phone No' required />
+                                        <input type="text" value={phone}
+                                        onChange={e => setPhone(e.target.value)}
+                                         class="form-control" id="validationDefault03" placeholder='Phone No' required />
                                     </div>
                                     <div class="col-md-12">
                                         <label for="validationDefault03" class="form-label">Addres</label>
-                                        <textarea type="text" class="form-control" id="validationDefault03" rows={3} placeholder='Address' required />
+                                        <textarea type="text" value={address}
+                                        onChange={e => setAddress(e.target.value)}
+                                         class="form-control" id="validationDefault03" rows={3} placeholder='Address' required />
                                     </div>
                                     <div class="col-12">
-                                        <button class="btn btn-primary" type="submit">Submit form</button>
+                                        <NavLink to={''}>
+                                        <button class="btn btn-primary" type="submit" onClick={handleData}>Registration</button>
+                                        </NavLink>
+                                        
                                     </div>
                                 </form>
                             </div>
