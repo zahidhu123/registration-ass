@@ -1,14 +1,12 @@
 import { Route, Routes } from 'react-router';
 import './App.css';
-import Table from './screen/home/table';
-import Registration from './screen/registration/registration';
+import Home from './screen/home/home';
 
 function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Registration />} />
-        <Route path="/table" element={<Table />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </div>
   );
